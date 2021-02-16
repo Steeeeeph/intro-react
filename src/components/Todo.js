@@ -1,9 +1,8 @@
 import React from 'react';
-function Todo() {
+export default function Todo({ todo }) {
     return (
-        <div>
-            <input type="checkbox" name="item" id="item" unchecked/>
-            <label htmlFor="item">Todo item</label>
-        </div>
+        <li style={{ listStyleType: 'none' }}>
+            <input type="checkbox" name="item" id="item" unchecked="true"/>{ todo }
+        </li>      
     )
 }

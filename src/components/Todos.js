@@ -1,16 +1,10 @@
-import React, { useState } from 'react';
-// import Todo from 'Todo';
+import React from 'react';
+import Todo from './Todo';
 
-export default function Todos() {
-    const arrayTodos = ["My first todo", "My second todo", "third one"];
-    const [todos, setTodos] = useState(arrayTodos);
+export default function Todos({todos}) {
     return (
-            <ul>
-                {todos.map((todo) =>( 
-                    <li style={{ listStyleType: 'none' }}>                
-                        <input type="checkbox" name="item" id="item" unchecked/>{todo}
-                    </li>      
-                ))}     
-            </ul>
+        todos.map((todo) => (
+            <Todo todo={ todo }/>
+        ))
     )
 }
