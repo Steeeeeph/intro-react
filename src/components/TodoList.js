@@ -41,7 +41,7 @@ export default function TodoList() {
     return (
         <div>
             <header>
-                <h1>todos</h1>
+                <h1>todos ²</h1>
             </header>
             <InputTodo handleAddTodo={handleAddTodo} todoNameRef={todoNameRef}/>
             <ul>

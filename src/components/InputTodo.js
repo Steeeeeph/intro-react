@@ -3,7 +3,6 @@ import React from 'react';
 export default function InputTodo({handleAddTodo, todoNameRef}) {
     // make enter key work for submitting todos
     function enterKey(e){
-
         if(e.key === "Enter") {
             handleAddTodo();
         }
