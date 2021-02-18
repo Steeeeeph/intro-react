@@ -1,27 +1,23 @@
-import React , { useEffect } from 'react';
+import React from 'react';
 import Todos from './Todos';
 
 
-export default function TodoList({todos, setTodos, lsKey}) {
+export default function TodoList({todos, setTodos }) {
+    function toggleTodo(itemId) {
+        const newTodos = [...todos];
+        console.log(newTodos);
+        newTodos.filter(todo => {
+            if (todo.itemId === itemId) {
+                todo.complete = !todo.complete;
+            }}
+        );
+        setTodos(newTodos);
 
-    useEffect(() => {
-        const storedTodos = JSON.parse(localStorage.getItem(lsKey));
-        console.log(storedTodos);
-        // TODO check empty storage
-        if (storedTodos != null){
-            return setTodos(storedTodos);
-        }
-    }, []);
-
-    // storing todos in local storage
-    useEffect(() => {
-        localStorage.setItem(lsKey, JSON.stringify(todos))
-    }, todos);
-
+    }
 
     return (
         <ul>
-            <Todos todos={todos} setTodos={setTodos} />
+            <Todos todos={todos} toggleTodo={toggleTodo}/>
         </ul>
     )
 }

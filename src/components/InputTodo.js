@@ -1,19 +1,9 @@
-import React , {useRef} from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import React from 'react';
 
 
-export default function InputTodo({setTodos}) {
+export default function InputTodo({todoNameRef, handleAddTodo}) {
 
-    const todoNameRef = useRef( );
 
-    function handleAddTodo(e){
-        const name = todoNameRef.current.value;
-        if (name === '') return;
-        setTodos(prevTodos => {
-            return [...prevTodos, {key: uuidv4(), name: name, complete: false}];
-        })
-        todoNameRef.current.value = null;
-    }
     // make enter key work for submitting todos
     function enterKey(e){
         if(e.key === "Enter") {
