@@ -1,7 +1,8 @@
 import React , {useRef} from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 
-export default function InputTodo({id, setTodos}) {
+export default function InputTodo({setTodos}) {
 
     const todoNameRef = useRef( );
 
@@ -9,7 +10,7 @@ export default function InputTodo({id, setTodos}) {
         const name = todoNameRef.current.value;
         if (name === '') return;
         setTodos(prevTodos => {
-            return [...prevTodos, {id: id, name: name, complete: false}];
+            return [...prevTodos, {key: uuidv4(), name: name, complete: false}];
         })
         todoNameRef.current.value = null;
     }
