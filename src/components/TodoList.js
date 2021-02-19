@@ -7,7 +7,7 @@ export default function TodoList({todos, setTodos, todoNameRef}) {
         const newTodos = [...todos];
         // console.log(newTodos);
         newTodos.filter(todo => {
-            if (todo.itemId === itemId) {
+            if (todo.itemId === itemId && !todo.edit) {
                 todo.complete = !todo.complete;
             }}
         );
