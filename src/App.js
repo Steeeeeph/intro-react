@@ -9,6 +9,7 @@ const lsKey = 'todoApp.todos';
 
 function App() {
   const [todos, setTodos] = useState([]);
+//   const [edit, setEdit] = useState(false);
   
     // getting stored todos from local storage
     useEffect(() => {
@@ -31,7 +32,7 @@ function App() {
         const name = todoNameRef.current.value;
         if (name === '') return;
         setTodos(prevTodos => {
-            return [...prevTodos, {itemId: uuidv4(), name: name, complete: false}];
+            return [...prevTodos, {itemId: uuidv4(), name: name, complete: false, edit:false}];
         })
         todoNameRef.current.value = null;
     }
