@@ -1,6 +1,7 @@
 import React from 'react';
 export default function Todo({ todo, toggleTodo, editTodo, enterNewName, todoNameRef}) {
-    let textDecoration = 'none'
+    let textDecoration = 'none';
+    const valueName = todo.name;
     if (todo.complete) {
          textDecoration = 'line-through';
     }
@@ -15,13 +16,16 @@ export default function Todo({ todo, toggleTodo, editTodo, enterNewName, todoNam
     function enterKey(e){
         if(e.key === "Enter" && e.target.value != '') {
             enterNewName(todo.itemId, e.target.value);
-        }
+        } else if (e.key === "Escape") { 
+            enterNewName(todo.itemId, todo.name);
+
+        };
     }
 
     return (
         <li style={{ listStyleType: 'none'}}>
             <input type="checkbox" name="item" id="item" checked={todo.complete} onChange={handleToggleTodo} /> {
-                !todo.edit ? <span style={{ textDecoration: textDecoration}} onDoubleClick={handleEditName}>{todo.name}</span> : <input ref={todoNameRef} placeholder={todo.name} type="text" onKeyDown={enterKey} />
+                !todo.edit ? <span style={{ textDecoration: textDecoration}} onDoubleClick={handleEditName}> {todo.name}</span> : <input ref={todoNameRef}  placeholder={todo.name} type="text" onKeyDown={enterKey} />
                 }
         </li>
     )
