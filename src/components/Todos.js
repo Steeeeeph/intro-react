@@ -5,6 +5,7 @@ export default function Todos({ todos, toggleTodo, editTodo, enterNewName, todoN
     return (
         todos.map((todo) => (
             <Todo toggleTodo={toggleTodo} todo={todo} editTodo={editTodo} enterNewName={enterNewName} todoNameRef={todoNameRef}/>
-        ))
+            )
+        )
     )
 }

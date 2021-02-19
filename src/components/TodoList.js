@@ -13,11 +13,10 @@ export default function TodoList({todos, setTodos, todoNameRef}) {
         );
         setTodos(newTodos);
     }
-
     function editTodo(itemId) {
         const editName = [...todos];
         editName.filter(todo => {
-            if (todo.itemId === itemId){
+            if (todo.itemId === itemId && !todo.complete){
                 todo.edit = !todo.edit;
             }}
         );
