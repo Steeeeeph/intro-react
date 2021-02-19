@@ -35,13 +35,19 @@ function App() {
         })
         todoNameRef.current.value = null;
     }
-
+    function deleteCompleted(e){
+        const deleteTodos = [...todos].filter(todo => 
+            (todo.complete === false)
+        );
+        setTodos(deleteTodos);
+    }
     return (
         <div>
         <header>
             <h1>todos ²</h1>
         </header>
-        <InputTodo todoNameRef={todoNameRef} handleAddTodo={handleAddTodo}/>
+        <InputTodo todoNameRef={todoNameRef} handleAddTodo={handleAddTodo} deleteCompleted={deleteCompleted}/>
+        
         <TodoList setTodos={setTodos} todos={todos} />
         </div>
     );

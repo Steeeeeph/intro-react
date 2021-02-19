@@ -5,7 +5,7 @@ import Todos from './Todos';
 export default function TodoList({todos, setTodos }) {
     function toggleTodo(itemId) {
         const newTodos = [...todos];
-        console.log(newTodos);
+        // console.log(newTodos);
         newTodos.filter(todo => {
             if (todo.itemId === itemId) {
                 todo.complete = !todo.complete;
@@ -14,6 +14,8 @@ export default function TodoList({todos, setTodos }) {
         setTodos(newTodos);
 
     }
+
+
 
     return (
         <ul>
